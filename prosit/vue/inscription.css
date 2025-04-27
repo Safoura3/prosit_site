@@ -1,0 +1,71 @@
+/* Style général */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #e1e1e0, #fbf8f7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Conteneur */
+.container {
+    background: rgb(255, 137, 3);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+}
+
+/* Titre */
+.container h2 {
+    color: #ff5500;
+    margin-bottom: 20px;
+}
+
+/* Champs */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Bouton */
+button {
+    background: #fcfbfb;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* Effet au survol */
+button:hover {
+    background: #fefdfc;
+}
+
+/* Lien vers la connexion */
+p {
+    margin-top: 15px;
+}
+
+p a {
+    color: #ff5500;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p a:hover {
+    text-decoration: underline;
+}

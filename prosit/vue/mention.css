@@ -1,0 +1,40 @@
+/* Fichier CSS : styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+.container {
+    max-width: 800px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #333;
+}
+
+p {
+    line-height: 1.6;
+    color: #555;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #666;
+    text-align: center;
+}

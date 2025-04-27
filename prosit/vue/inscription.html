@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - lebonplan</title>
+    <link rel="stylesheet" href="inscription.css">
+</head>
+<body>
+    <main class="form-container">
+        <div>
+            <a href="../index.php" >Acceuil</a>
+            <a href="../controlleur/entreprises.php" >Entreprises</a>
+            <a href="../controlleur/offres.php" >Offres</a>
+            <a href="prosit.html" >postuler</a>
+            <a href="wishlist.html">Wishlist</a>
+            <a href="contact.html" >Contact</a>
+        </div>
+        <h2>Inscription</h2>
+
+        <form>
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" placeholder="Votre nom" required>
+
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" placeholder="Votre prénom" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Votre email" required>
+
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" placeholder="Votre mot de passe" required>
+
+            <label for="confirm-password">Confirmer le mot de passe</label>
+            <input type="password" id="confirm-password" placeholder="Confirmez votre mot de passe" required>
+
+            <button type="submit" class="btn-submit">S'inscrire</button>
+        </form>
+        <p>Déjà un compte ? <a href="connexion.html">Connectez-vous</a></p>
+    </main>
+    
+</body>
+</html>

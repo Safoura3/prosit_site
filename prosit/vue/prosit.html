@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>lebonplan - Postuler</title>
+  <link rel="stylesheet" href="prosit.css"/>
+</head>
+<body>
+
+<header>
+  <h1>lebonplan</h1>
+  <nav class="blob">
+    <div>
+      <a href="../index.php" >Acceuil</a>
+      <a href="../controlleur/entreprises.php" >Entreprises</a>
+      <a href="../controlleur/offres.php" >Offres</a>
+      <a href="wishlist.html">Wishlist</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="auth-links">
+      <a href="connexion.html">Connexion</a> |
+      <a href="inscription.html">Inscription</a>
+    </div>
+  </nav>
+</header>
+
+<nav class="glock">
+  <a href="#">Accueil</a> > <a href="#">Offres</a> > <a href="#">Stages</a> > <a href="#">Postuler</a>
+</nav>
+
+<div class="container">
+  <div class="offre">
+    <section class="form-container">
+      <h1>Postuler à une offre de stage</h1>
+      <p>Vous pouvez téléphoner directement à l'entreprise...</p>
+      <h3></h3>
+      <p></p>
+      <h4>Résumé de l'offre</h4>
+      <div id="resume" class="resume-box"></div>
+      
+        <!-- On va remplir ça en JS -->
+      </div>
+      
+    </section>
+  </div>
+
+  <!-- Formulaire complet -->
+  <form id="formulaire">
+
+    <h4>Envoyez votre candidature dès maintenant !</h4>
+
+    <label for="genre">CIVILITÉ</label>
+    <select id="genre" required>
+      <option value="">Sélectionnez</option>
+      <option value="Masculin">Masculin</option>
+      <option value="Féminin">Féminin</option>
+    </select>
+
+    <label for="nom">NOM</label>
+    <input type="text" id="nom" required>
+
+    <label for="prenom">PRÉNOM</label>
+    <input type="text" id="prenom" required>
+
+    <label for="email">COURRIEL</label>
+    <input type="email" id="email" required>
+
+    <div class="vous"> 
+        <label>A PROPOS DE VOUS</label><br>
+        <input  name="Permis B" id="permis" type="checkbox">
+        <label class="d" for="permis">Permis B</label><br>
+      
+        <input type="checkbox" name="Véhiculé" id="Véhiculé">
+        <label class="s" for="Véhiculé">Véhiculé</label><br>
+      
+        <input type="checkbox" name="Certification" id="Certification">
+        <label class="p" for="Certification">Certification (Microsoft, Cisco...)</label>
+      </div>
+      
+      <div class="majeur">
+        <label>JE SUIS MAJEUR</label><br>
+        <input type="radio" name="choix" value="oui" id="oui">
+        <label for="oui">Oui</label>
+      
+        <input type="radio" name="choix" value="non" id="non">
+        <label for="non">Non</label>
+      </div>
+      
+    <label for="message">VOTRE MESSAGE AU RECRUTEUR</label>
+    <textarea id="message" name="message"></textarea>
+
+    <h3>Upload un fichier PDF</h3>
+    <label for="file">Sélectionnez un fichier PDF (max 2 Mo) :</label>
+    <input type="file" name="file" id="file" accept="application/pdf" required>
+
+    <div class="buttons">
+      <button type="button" onclick="televerserCV()">Téléverser</button>
+      <button type="submit">ENVOYER</button>
+      <button type="reset">RÉINITIALISER</button>
+    </div>
+  </form>
+
+  <footer>
+    <p>En cliquant sur "Postuler", vous acceptez les <a href="#">GCU</a> et la <a href="#">politique de confidentialité</a>.</p>
+    <p><a href="mention.html">Mentions legales</a></p>
+  </footer>
+</div>
+
+<script src="script.js"></script>
+
+<script src="document.js"></script>
+
+<script>
+    function getParam(name) {
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name) || '';
+    }
+  
+    const titre = getParam('titre');
+    const entreprise = getParam('entreprise');
+    const lieu = getParam('lieu');
+    const types = getParam('types'); // ✅ AVEC S
+    const duree = getParam('duree');
+    const description = getParam('description');
+  
+    // Affichage dynamique dans la page
+    document.querySelector('.form-container h3').textContent = titre || "Titre de l'offre";
+    document.querySelector('.form-container p:nth-of-type(2)').innerHTML =
+      `<strong>${entreprise}</strong> | ${lieu} | Type : ${types} | Durée : ${duree}`;
+  
+    // Génération du résumé
+    const resume = `
+      💼 <strong>${titre}</strong> chez <strong>${entreprise}</strong> à <strong>${lieu}</strong>.<br>
+      Type : <strong>${types}</strong>, pour une durée de <strong>${duree}</strong>.<br><br>
+      👉 ${description}
+    `;
+    document.getElementById('resume').innerHTML = resume;
+  </script>
+  
+  
+</body>
+</html>

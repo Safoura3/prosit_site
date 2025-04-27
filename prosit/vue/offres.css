@@ -1,0 +1,122 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: orange;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header nav {
+    margin-top: 15px;
+}
+
+header nav a {
+    margin: 0 15px;
+    color: #f1f0ed;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav a:hover {
+    color: white;
+}
+
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.offre {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 6px solid #ff9800;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+}
+
+.offre:hover {
+    transform: scale(1.01);
+}
+
+.offre h2 {
+    color: #333;
+    margin-top: 0;
+}
+
+.offre .entreprise {
+    color: #777;
+    font-size: 14px;
+}
+
+.offre .type {
+    color: #555;
+    margin: 8px 0;
+    font-style: italic;
+}
+
+.offre .description {
+    font-size: 15px;
+    line-height: 1.4;
+    color: #444;
+}
+
+.btn-postuler {
+    display: inline-block;
+    background-color: #ff9800;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.btn-postuler:hover {
+    background-color: #e08200;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.pagination-list {
+    list-style: none;
+    padding: 0;
+}
+
+.pagination-list li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.pagination-list a {
+    color: #ff9800;
+    padding: 8px 12px;
+    border: 1px solid #ff9800;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.pagination-list a:hover {
+    background-color: #ff9800;
+    color: white;
+}
+
+.pagination-list .active {
+    background-color: #222;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+}
