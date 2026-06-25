@@ -1,6 +1,6 @@
 # lebonplan — Site d'offres de stages et d'alternances (PHP / MySQL)
 
-**lebonplan** est un site web d'**offres de stages et d'alternances en informatique**.
+**lebonplan** est un projet academique (site web d'**offres de stages et d'alternances en informatique**.)
 Les visiteurs peuvent consulter les offres, explorer les entreprises, sauvegarder
 des offres dans une **wishlist**, et **postuler** via un formulaire pré-rempli.
 
