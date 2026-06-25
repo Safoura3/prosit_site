@@ -1,46 +1,64 @@
-<!-- Fichier HTML : mentions-legales.html -->
-<!-- Fichier HTML : mentions-legales.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentions Légales</title>
-    <link rel="stylesheet" href="mention.css">
+    <title>Mentions légales — lebonplan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Mentions Légales</h1>
-        
-        <section>
-            <h2>Éditeur du site</h2>
-            <p><strong>Nom de l'entreprise :</strong> Exemple SARL</p>
-            <p><strong>Adresse :</strong> 123 Rue de l'Internet, 75000 Paris, France</p>
-            <p><strong>Téléphone :</strong> +33 1 23 45 67 89</p>
-            <p><strong>Email :</strong> contact@example.com</p>
-        </section>
-        
-        <section>
-            <h2>Hébergement</h2>
-            <p><strong>Hébergeur :</strong> OVH</p>
-            <p><strong>Adresse :</strong> 2 Rue Kellermann, 59100 Roubaix, France</p>
-            <p><strong>Site web :</strong> <a href="https://www.ovh.com">www.ovh.com</a></p>
-        </section>
-        
-        <section>
-            <h2>Propriété intellectuelle</h2>
-            <p>Le contenu de ce site (textes, images, vidéos, etc.) est protégé par le droit d’auteur. Toute reproduction est interdite sans autorisation préalable.</p>
-        </section>
-        
-        <section>
-            <h2>Cookies</h2>
-            <p>Ce site utilise des cookies pour améliorer l'expérience utilisateur. Vous pouvez gérer vos préférences dans les paramètres de votre navigateur.</p>
-        </section>
-        
-        <footer class="footer">&copy; 2025 - Exemple SARL - Tous droits réservés.</footer>
-    </div>
-    
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a class="logo" href="../index.php">le<span>bonplan</span></a>
+            <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">&#9776;</button>
+            <nav class="site-nav">
+                <a href="../controlleur/entreprises.php">Entreprises</a>
+                <a href="../controlleur/offres.php">Offres</a>
+                <a href="prosit.html">Postuler</a>
+                <a href="wishlist.html">Wishlist</a>
+                <a href="contact.html">Contact</a>
+                <span class="nav-auth">
+                    <a class="btn btn-ghost" href="connexion.html">Connexion</a>
+                    <a class="btn btn-primary" href="inscription.html">Inscription</a>
+                </span>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="card wide prose">
+            <h1>Mentions légales</h1>
+            <section>
+                <h2>Éditeur du site</h2>
+                <p><strong>Nom de l'entreprise :</strong> Exemple SARL</p>
+                <p><strong>Adresse :</strong> 123 Rue de l'Internet, 75000 Paris, France</p>
+                <p><strong>Téléphone :</strong> +33 1 23 45 67 89</p>
+                <p><strong>Email :</strong> contact@example.com</p>
+            </section>
+            <section>
+                <h2>Hébergement</h2>
+                <p><strong>Hébergeur :</strong> OVH</p>
+                <p><strong>Adresse :</strong> 2 Rue Kellermann, 59100 Roubaix, France</p>
+                <p><strong>Site web :</strong> <a href="https://www.ovh.com">www.ovh.com</a></p>
+            </section>
+            <section>
+                <h2>Propriété intellectuelle</h2>
+                <p>Le contenu de ce site (textes, images, vidéos, etc.) est protégé par le droit d'auteur. Toute reproduction est interdite sans autorisation préalable.</p>
+            </section>
+            <section>
+                <h2>Cookies</h2>
+                <p>Ce site utilise des cookies pour améliorer l'expérience utilisateur. Vous pouvez gérer vos préférences dans les paramètres de votre navigateur.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-bottom">&copy; 2025 lebonplan — Tous droits réservés.</div>
+    </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>
-
-

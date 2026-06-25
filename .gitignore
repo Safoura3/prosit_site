@@ -1,0 +1,10 @@
+# Dépendances / build
+/vendor/
+node_modules/
+
+# Config locale
+*.local.php
+
+# Système
+.DS_Store
+Thumbs.db

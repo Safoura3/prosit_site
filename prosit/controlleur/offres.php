@@ -10,14 +10,14 @@ $start = ($page - 1) * $parPage;
 $total = $pdo->query("SELECT COUNT(*) FROM offres")->fetchColumn();
 $totalPages = ceil($total / $parPage);
 
-// Requête avec LIMIT
+// Requête avec LIMIT (requête préparée : protège contre les injections SQL)
 $stmt = $pdo->prepare("SELECT * FROM offres LIMIT :start, :limit");
 $stmt->bindValue(':start', $start, PDO::PARAM_INT);
 $stmt->bindValue(':limit', $parPage, PDO::PARAM_INT);
 $stmt->execute();
 $offresPage = $stmt->fetchAll();
 
-// Fonction de pagination (remplace ton fichier pagination_offres.php)
+// Fonction de pagination
 function afficherPaginationOffres($pageActuelle, $totalPages) {
     $html = '<ul class="pagination-list">';
     for ($i = 1; $i <= $totalPages; $i++) {
@@ -31,47 +31,72 @@ function afficherPaginationOffres($pageActuelle, $totalPages) {
     return $html;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Offres - Informatique</title>
-    <link rel="stylesheet" href="../vue/offres.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offres en informatique — lebonplan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../vue/global.css">
 </head>
 <body>
 
-<header>
-    <h1>Offres de stages et alternances en informatique</h1>
-    <nav>
-        <a href="../index.php">Accueil</a>
-        <a href="entreprises.php">Entreprises</a>
-        <a href="../vue/wishlist.html">Wishlist</a>
-        <a href="../vue/contact.html">Contact</a>
-    </nav>
-</header>
-
-<main>
-    <?php foreach ($offresPage as $offre): ?>
-        <div class="offre">
-            <h2><?= htmlspecialchars($offre['titre']) ?></h2>
-            <p class="entreprise"><?= htmlspecialchars($offre['entreprise']) ?> – <span><?= htmlspecialchars($offre['lieu']) ?></span></p>
-            <p class="types"><?= htmlspecialchars($offre['types']) ?> • <?= htmlspecialchars($offre['duree']) ?></p>
-            <p class="description"><?= htmlspecialchars($offre['description']) ?></p>
-            <!---<a href="../vue/prosit.html" class="btn-postuler">Postuler</a>-->
-            <a href="../vue/prosit.html?titre=<?= urlencode($offre['titre']) ?>&entreprise=<?= urlencode($offre['entreprise']) ?>&lieu=<?= urlencode($offre['lieu']) ?>&types=<?= urlencode($offre['types']) ?>&duree=<?= urlencode($offre['duree']) ?>&description=<?= urlencode($offre['description']) ?>" class="btn-postuler">Postuler</a>
-
-            <button class="wishlist-btn"
-                data-id="<?= $offre['id'] ?>"
-                data-title="<?= htmlspecialchars($offre['titre']) ?>"
-                data-company="<?= htmlspecialchars($offre['entreprise']) ?>">Ajouter à la wishlist</button>
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a class="logo" href="../index.php">le<span>bonplan</span></a>
+            <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">&#9776;</button>
+            <nav class="site-nav">
+                <a href="entreprises.php">Entreprises</a>
+                <a href="offres.php">Offres</a>
+                <a href="../vue/prosit.html">Postuler</a>
+                <a href="../vue/wishlist.html">Wishlist</a>
+                <a href="../vue/contact.html">Contact</a>
+                <span class="nav-auth">
+                    <a class="btn btn-ghost" href="../vue/connexion.html">Connexion</a>
+                    <a class="btn btn-primary" href="../vue/inscription.html">Inscription</a>
+                </span>
+            </nav>
         </div>
-    <?php endforeach; ?>
+    </header>
 
-    <div class="pagination">
+    <main class="container">
+        <div class="page-title">
+            <h1>Offres de stages et d'alternances</h1>
+            <p>Spécialisées en informatique. Cliquez sur « Postuler » ou ajoutez une offre à votre wishlist.</p>
+        </div>
+
+        <div class="grid-offres">
+            <?php foreach ($offresPage as $offre): ?>
+                <article class="offre">
+                    <h2><?= htmlspecialchars($offre['titre']) ?></h2>
+                    <p class="entreprise"><?= htmlspecialchars($offre['entreprise']) ?> <span>· <?= htmlspecialchars($offre['lieu']) ?></span></p>
+                    <div class="types">
+                        <span class="tag"><?= htmlspecialchars($offre['types']) ?></span>
+                        <span class="tag"><?= htmlspecialchars($offre['duree']) ?></span>
+                    </div>
+                    <p class="description"><?= htmlspecialchars($offre['description']) ?></p>
+                    <div class="offre-actions">
+                        <a class="btn-postuler" href="../vue/prosit.html?titre=<?= urlencode($offre['titre']) ?>&entreprise=<?= urlencode($offre['entreprise']) ?>&lieu=<?= urlencode($offre['lieu']) ?>&types=<?= urlencode($offre['types']) ?>&duree=<?= urlencode($offre['duree']) ?>&description=<?= urlencode($offre['description']) ?>">Postuler</a>
+                        <button class="wishlist-btn"
+                            data-id="<?= $offre['id'] ?>"
+                            data-title="<?= htmlspecialchars($offre['titre']) ?>"
+                            data-company="<?= htmlspecialchars($offre['entreprise']) ?>">♡ Wishlist</button>
+                    </div>
+                </article>
+            <?php endforeach; ?>
+        </div>
+
         <?= afficherPaginationOffres($page, $totalPages); ?>
-    </div>
-</main>
-<script src="../vue/offres.js"></script>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-bottom">&copy; 2025 lebonplan — <a href="../vue/mention.html">Mentions légales</a></div>
+    </footer>
+
+    <script src="../vue/app.js"></script>
+    <script src="../vue/offres.js"></script>
 </body>
 </html>

@@ -3,141 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>lebonplan - Postuler</title>
-  <link rel="stylesheet" href="prosit.css"/>
+  <title>Postuler — lebonplan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="global.css"/>
 </head>
 <body>
 
-<header>
-  <h1>lebonplan</h1>
-  <nav class="blob">
-    <div>
-      <a href="../index.php" >Acceuil</a>
-      <a href="../controlleur/entreprises.php" >Entreprises</a>
-      <a href="../controlleur/offres.php" >Offres</a>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.php">le<span>bonplan</span></a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">&#9776;</button>
+    <nav class="site-nav">
+      <a href="../controlleur/entreprises.php">Entreprises</a>
+      <a href="../controlleur/offres.php">Offres</a>
+      <a href="prosit.html">Postuler</a>
       <a href="wishlist.html">Wishlist</a>
       <a href="contact.html">Contact</a>
-    </div>
-    <div class="auth-links">
-      <a href="connexion.html">Connexion</a> |
-      <a href="inscription.html">Inscription</a>
-    </div>
-  </nav>
+      <span class="nav-auth">
+        <a class="btn btn-ghost" href="connexion.html">Connexion</a>
+        <a class="btn btn-primary" href="inscription.html">Inscription</a>
+      </span>
+    </nav>
+  </div>
 </header>
 
-<nav class="glock">
-  <a href="#">Accueil</a> > <a href="#">Offres</a> > <a href="#">Stages</a> > <a href="#">Postuler</a>
-</nav>
-
 <div class="container">
-  <div class="offre">
-    <section class="form-container">
-      <h1>Postuler à une offre de stage</h1>
-      <p>Vous pouvez téléphoner directement à l'entreprise...</p>
-      <h3></h3>
-      <p></p>
-      <h4>Résumé de l'offre</h4>
-      <div id="resume" class="resume-box"></div>
-      
-        <!-- On va remplir ça en JS -->
-      </div>
-      
-    </section>
-  </div>
+  <nav class="breadcrumb">
+    <a href="../index.php">Accueil</a> › <a href="../controlleur/offres.php">Offres</a> › <span>Postuler</span>
+  </nav>
 
-  <!-- Formulaire complet -->
-  <form id="formulaire">
+  <!-- Résumé de l'offre (rempli dynamiquement en JavaScript) -->
+  <section class="form-container card wide">
+    <h4>Résumé de l'offre</h4>
+    <h3>Titre de l'offre</h3>
+    <p>Vous pouvez aussi contacter directement l'entreprise.</p>
+    <p>Détails de l'offre sélectionnée.</p>
+    <div id="resume" class="resume-box"></div>
+  </section>
 
-    <h4>Envoyez votre candidature dès maintenant !</h4>
+  <!-- Formulaire de candidature -->
+  <form id="formulaire" class="card wide">
+    <h2>Envoyez votre candidature</h2>
+    <p class="subtitle">Renseignez vos informations et joignez votre CV au format PDF.</p>
 
-    <label for="genre">CIVILITÉ</label>
+    <label for="genre">Civilité</label>
     <select id="genre" required>
       <option value="">Sélectionnez</option>
       <option value="Masculin">Masculin</option>
       <option value="Féminin">Féminin</option>
     </select>
 
-    <label for="nom">NOM</label>
+    <label for="nom">Nom</label>
     <input type="text" id="nom" required>
 
-    <label for="prenom">PRÉNOM</label>
+    <label for="prenom">Prénom</label>
     <input type="text" id="prenom" required>
 
-    <label for="email">COURRIEL</label>
+    <label for="email">Courriel</label>
     <input type="email" id="email" required>
 
-    <div class="vous"> 
-        <label>A PROPOS DE VOUS</label><br>
-        <input  name="Permis B" id="permis" type="checkbox">
-        <label class="d" for="permis">Permis B</label><br>
-      
-        <input type="checkbox" name="Véhiculé" id="Véhiculé">
-        <label class="s" for="Véhiculé">Véhiculé</label><br>
-      
-        <input type="checkbox" name="Certification" id="Certification">
-        <label class="p" for="Certification">Certification (Microsoft, Cisco...)</label>
-      </div>
-      
-      <div class="majeur">
-        <label>JE SUIS MAJEUR</label><br>
-        <input type="radio" name="choix" value="oui" id="oui">
-        <label for="oui">Oui</label>
-      
-        <input type="radio" name="choix" value="non" id="non">
-        <label for="non">Non</label>
-      </div>
-      
-    <label for="message">VOTRE MESSAGE AU RECRUTEUR</label>
+    <label>À propos de vous</label>
+    <div class="check-row"><input name="Permis B" id="permis" type="checkbox"><label for="permis">Permis B</label></div>
+    <div class="check-row"><input type="checkbox" name="Véhiculé" id="vehicule"><label for="vehicule">Véhiculé(e)</label></div>
+    <div class="check-row"><input type="checkbox" name="Certification" id="certification"><label for="certification">Certification (Microsoft, Cisco...)</label></div>
+
+    <label>Je suis majeur(e)</label>
+    <div class="check-row"><input type="radio" name="choix" value="oui" id="oui"><label for="oui">Oui</label></div>
+    <div class="check-row"><input type="radio" name="choix" value="non" id="non"><label for="non">Non</label></div>
+
+    <label for="message">Votre message au recruteur</label>
     <textarea id="message" name="message"></textarea>
 
-    <h3>Upload un fichier PDF</h3>
-    <label for="file">Sélectionnez un fichier PDF (max 2 Mo) :</label>
+    <label for="file">Votre CV (PDF, max 2 Mo)</label>
     <input type="file" name="file" id="file" accept="application/pdf" required>
 
-    <div class="buttons">
-      <button type="button" onclick="televerserCV()">Téléverser</button>
-      <button type="submit">ENVOYER</button>
-      <button type="reset">RÉINITIALISER</button>
+    <div class="form-actions">
+      <button type="button" class="btn btn-ghost" onclick="televerserCV()">Aperçu du CV</button>
+      <button type="submit" class="btn btn-accent">Envoyer ma candidature</button>
+      <button type="reset" class="btn btn-ghost">Réinitialiser</button>
     </div>
   </form>
 
-  <footer>
-    <p>En cliquant sur "Postuler", vous acceptez les <a href="#">GCU</a> et la <a href="#">politique de confidentialité</a>.</p>
-    <p><a href="mention.html">Mentions legales</a></p>
+  <footer class="site-footer" style="margin-top:40px;">
+    <div class="footer-bottom">
+      En postulant, vous acceptez les <a href="#">CGU</a> et la <a href="#">politique de confidentialité</a> — <a href="mention.html">Mentions légales</a>
+    </div>
   </footer>
 </div>
 
+<script src="app.js"></script>
 <script src="script.js"></script>
-
 <script src="document.js"></script>
-
 <script>
-    function getParam(name) {
-      const url = new URL(window.location.href);
-      return url.searchParams.get(name) || '';
-    }
-  
-    const titre = getParam('titre');
-    const entreprise = getParam('entreprise');
-    const lieu = getParam('lieu');
-    const types = getParam('types'); // ✅ AVEC S
-    const duree = getParam('duree');
-    const description = getParam('description');
-  
-    // Affichage dynamique dans la page
-    document.querySelector('.form-container h3').textContent = titre || "Titre de l'offre";
+  function getParam(name) {
+    const url = new URL(window.location.href);
+    return url.searchParams.get(name) || '';
+  }
+
+  const titre = getParam('titre');
+  const entreprise = getParam('entreprise');
+  const lieu = getParam('lieu');
+  const types = getParam('types');
+  const duree = getParam('duree');
+  const description = getParam('description');
+
+  if (titre) {
+    document.querySelector('.form-container h3').textContent = titre;
     document.querySelector('.form-container p:nth-of-type(2)').innerHTML =
-      `<strong>${entreprise}</strong> | ${lieu} | Type : ${types} | Durée : ${duree}`;
-  
-    // Génération du résumé
-    const resume = `
+      `<strong>${entreprise}</strong> · ${lieu} · ${types} · ${duree}`;
+    document.getElementById('resume').innerHTML = `
       💼 <strong>${titre}</strong> chez <strong>${entreprise}</strong> à <strong>${lieu}</strong>.<br>
-      Type : <strong>${types}</strong>, pour une durée de <strong>${duree}</strong>.<br><br>
-      👉 ${description}
-    `;
-    document.getElementById('resume').innerHTML = resume;
-  </script>
-  
-  
+      Type : <strong>${types}</strong>, durée : <strong>${duree}</strong>.<br><br>
+      ${description}`;
+  } else {
+    document.getElementById('resume').innerHTML = "Sélectionnez une offre depuis la page Offres pour pré-remplir ce résumé.";
+  }
+</script>
+
 </body>
 </html>

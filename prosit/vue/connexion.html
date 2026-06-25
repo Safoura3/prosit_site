@@ -3,35 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion - lebonplan</title>
-    <link rel="stylesheet" href="inscription.css">
-    <div>
-        <a href="../index.php" >Acceuil</a>
-        <a href="../controlleur/entreprises.php" >Entreprises</a>
-        <a href="../controlleur/offres.php" >Offres</a>
-        <a href="prosit.html" >postuler</a>
-        <a href="wishlist.html">Wishlist</a>
-        <a href="contact.html" >Contact</a>
-        <div class="login-container">
-            <h2>Connexion</h2>
+    <title>Connexion — lebonplan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="global.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a class="logo" href="../index.php">le<span>bonplan</span></a>
+            <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">&#9776;</button>
+            <nav class="site-nav">
+                <a href="../controlleur/entreprises.php">Entreprises</a>
+                <a href="../controlleur/offres.php">Offres</a>
+                <a href="prosit.html">Postuler</a>
+                <a href="wishlist.html">Wishlist</a>
+                <a href="contact.html">Contact</a>
+                <span class="nav-auth">
+                    <a class="btn btn-ghost" href="connexion.html">Connexion</a>
+                    <a class="btn btn-primary" href="inscription.html">Inscription</a>
+                </span>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="card">
+            <h1>Connexion</h1>
+            <p class="subtitle">Heureux de vous revoir. Connectez-vous à votre compte.</p>
             <form action="traitement_connexion.php" method="POST">
-                <div class="input-group">
-                    <label for="email">Adresse e-mail</label>
-                    <input type="email" id="email" name="email" placeholder="Entrez votre adresse e-mail" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
-                </div>
-                <div class="input-group">
+                <label for="email">Adresse e-mail</label>
+                <input type="email" id="email" name="email" placeholder="vous@exemple.com" required>
+
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" placeholder="Votre mot de passe" required>
+
+                <div class="check-row">
                     <input type="checkbox" id="remember-me" name="remember-me">
                     <label for="remember-me">Se souvenir de moi</label>
                 </div>
-                <button type="submit">Se connecter</button>
-                <p class="register-link">Pas encore de compte ? <a href="inscription.html">Inscrivez-vous</a></p>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+                </div>
+                <p class="link-line">Pas encore de compte ? <a href="inscription.html">Inscrivez-vous</a></p>
             </form>
         </div>
-    
-    </body>
-    </html>
-    
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

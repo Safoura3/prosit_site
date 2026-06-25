@@ -3,92 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lebonplan - Accueil</title>
-    <link rel="stylesheet" href="vue/acceuil.css">
+    <title>lebonplan — Trouvez votre stage ou alternance en informatique</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="vue/global.css">
 </head>
 <body>
-    <!-- En-tête -->
-    <header>
-        <div class="logo">
-            <h1>lebonplan</h1>
-        </div>
-        <nav>
-            <div>
-                <a href="controlleur/entreprises.php" >Entreprises</a>
-                <a href="controlleur/offres.php" >Offres</a>
-                <a href="vue/prosit.html" >postuler</a>
+
+    <!-- ===== En-tete ===== -->
+    <header class="site-header">
+        <div class="container nav-wrap">
+            <a class="logo" href="index.php">le<span>bonplan</span></a>
+            <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">&#9776;</button>
+            <nav class="site-nav">
+                <a href="controlleur/entreprises.php">Entreprises</a>
+                <a href="controlleur/offres.php">Offres</a>
+                <a href="vue/prosit.html">Postuler</a>
                 <a href="vue/wishlist.html">Wishlist</a>
-                <a href="vue/contact.html" >Contact</a>
-            </div>
-        </nav>
-        <div class="auth-links">
-            <a href="vue/connexion.html" id="connexion">Connexion</a>
-            <a href="vue/inscription.html" id="inscription">Inscription</a>
+                <a href="vue/contact.html">Contact</a>
+                <span class="nav-auth">
+                    <a class="btn btn-ghost" href="vue/connexion.html">Connexion</a>
+                    <a class="btn btn-primary" href="vue/inscription.html">Inscription</a>
+                </span>
+            </nav>
         </div>
     </header>
 
-    <!-- Section principale -->
+    <!-- ===== Hero ===== -->
     <main>
-        <!-- Section Hero -->
         <section class="hero">
-            <div class="hero-content">
-                <h2>Votre carrière commence ici</h2>
-                <p>Découvrez des milliers d'offres de stage et d'emploi adaptées à votre profil.</p>
-                <a href="controlleur/offres.php" class="btn">Voir les offres</a>
+            <div class="container">
+                <span class="eyebrow">Stages &amp; alternances en informatique</span>
+                <h2>Votre carrière dans la tech <em>commence ici</em>.</h2>
+                <p>Découvrez des offres de stage et d'alternance adaptées à votre profil, et postulez en quelques clics.</p>
+                <div class="hero-actions">
+                    <a href="controlleur/offres.php" class="btn btn-accent">Voir les offres</a>
+                    <a href="controlleur/entreprises.php" class="btn btn-ghost">Explorer les entreprises</a>
+                </div>
+                <div class="hero-stats">
+                    <div><div class="num">100+</div><div class="lbl">Offres en ligne</div></div>
+                    <div><div class="num">50+</div><div class="lbl">Entreprises partenaires</div></div>
+                    <div><div class="num">100%</div><div class="lbl">Dédié à l'informatique</div></div>
+                </div>
             </div>
         </section>
 
-        <!-- Section À propos -->
-        <section class="about">
-            <h2>À propos de lebonplan</h2>
-            <p>lebonplan est une plateforme dédiée à la mise en relation des étudiants et des entreprises pour des opportunités de stage et d'emploi. Notre mission est de faciliter votre insertion professionnelle en vous proposant des offres adaptées à vos compétences et aspirations.</p>
-        </section>
-
-        <!-- Section Statistiques -->
-        <section class="stats">
-            <div class="stat">
-                <h3>500+</h3>
-                <p>Entreprises partenaires</p>
+        <!-- ===== Comment ca marche ===== -->
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow">Comment ça marche</span>
+                    <h2>Trouver un stage n'a jamais été aussi simple</h2>
+                </div>
+                <div class="grid-offres">
+                    <div class="offre">
+                        <span class="tag">1 — Parcourir</span>
+                        <h2>Explorez les offres</h2>
+                        <p class="description">Filtrez les stages et alternances en informatique et trouvez ceux qui correspondent à votre profil.</p>
+                    </div>
+                    <div class="offre">
+                        <span class="tag">2 — Sauvegarder</span>
+                        <h2>Créez votre wishlist</h2>
+                        <p class="description">Ajoutez vos offres préférées à votre wishlist pour les retrouver et les comparer facilement.</p>
+                    </div>
+                    <div class="offre">
+                        <span class="tag">3 — Postuler</span>
+                        <h2>Candidatez en ligne</h2>
+                        <p class="description">Envoyez votre candidature et votre CV directement depuis un formulaire pré-rempli avec l'offre.</p>
+                    </div>
+                </div>
             </div>
-            <div class="stat">
-                <h3>10,000+</h3>
-                <p>Offres disponibles</p>
-            </div>
-            <div class="stat">
-                <h3>15,000+</h3>
-                <p>Étudiants inscrits</p>
-            </div>
-        </section>
-
-        <!-- Section Témoignages -->
-        <section class="testimonials">
-            <h2>Ce que disent nos utilisateurs</h2>
-            <div class="testimonial">
-                <p>"Grâce à lebonplan, j'ai trouvé le stage de mes rêves en quelques clics. Je recommande vivement cette plateforme à tous les étudiants en recherche d'opportunités."</p>
-                <h4>- Marie Dupont</h4>
-            </div>
-            <div class="testimonial">
-                <p>"Une interface intuitive et des offres pertinentes. lebonplan m'a permis de décrocher un emploi rapidement après mes études."</p>
-                <h4>- Jean Martin</h4>
-            </div>
-        </section>
-
-        <!-- Section Appel à l'action -->
-        <section class="cta">
-            <h2>Prêt à démarrer votre carrière ?</h2>
-            <p>Inscrivez-vous dès maintenant et accédez à des milliers d'offres adaptées à votre profil.</p>
-            <a href="vue/inscription.html" class="btn">S'inscrire</a>
         </section>
     </main>
 
-    <!-- Pied de page -->
-    <footer>
-        <p>&copy; 2025 lebonplan. Tous droits réservés.</p>
-        <div class="footer-links">
-            <a href="vue/mention.html">Mentions légales</a>
-            <a href="politique-confidentialite.html">Politique de confidentialité</a>
-            <a href="vue/contact.html">Contact</a>
+    <!-- ===== Pied de page ===== -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <span class="logo">le<span style="color:#7c75f0">bonplan</span></span>
+                <p>La plateforme qui connecte les étudiants en informatique aux meilleures offres de stage et d'alternance.</p>
+            </div>
+            <nav class="footer-links">
+                <a href="controlleur/offres.php">Offres</a>
+                <a href="controlleur/entreprises.php">Entreprises</a>
+                <a href="vue/wishlist.html">Wishlist</a>
+                <a href="vue/contact.html">Contact</a>
+            </nav>
+            <nav class="footer-links">
+                <a href="vue/connexion.html">Connexion</a>
+                <a href="vue/inscription.html">Inscription</a>
+                <a href="vue/mention.html">Mentions légales</a>
+            </nav>
         </div>
+        <div class="footer-bottom">&copy; 2025 lebonplan — Tous droits réservés.</div>
     </footer>
+
+    <script src="vue/app.js"></script>
 </body>
 </html>
